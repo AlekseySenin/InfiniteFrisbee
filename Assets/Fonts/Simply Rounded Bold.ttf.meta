@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 4bb67e1a055d49e4993a9d9b684a6269
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Simply Rounded
+  fontNames:
+  - Simply Rounded
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 03995ea246a0b7547aa9abd5be0d4c63, type: 3}
+  - {fileID: 12800000, guid: a4757e598663cd94ea857e377940eca7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
