@@ -6,7 +6,7 @@ public class EnemyProjectileLocator : MonoBehaviour
 {
     [SerializeField] protected LayerMask hittableLayers = -1;
     [SerializeField] protected float fovRadius;
-    [SerializeField] EnemyBehaviour enemyBehaviour;
+    [SerializeField] OldEnemyBehaviour enemyBehaviour;
     public Transform hand;
     private bool projectileInRange;
 
@@ -14,7 +14,7 @@ public class EnemyProjectileLocator : MonoBehaviour
     {
         if (enemyBehaviour == null)
         {
-            enemyBehaviour = GetComponent<EnemyBehaviour>();
+            enemyBehaviour = GetComponent<OldEnemyBehaviour>();
         }
     }
 

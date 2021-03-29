@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAnimationManager : MonoBehaviour
+public class EnemyAnimationManager : OldEnemyBehaviour
 {
     [SerializeField] protected Animator animator;
 

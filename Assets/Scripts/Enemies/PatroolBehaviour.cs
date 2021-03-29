@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatroolBehaviour : EnemyBehaviour
+public class PatroolBehaviour : OldEnemyBehaviour
 {
     public override IEnumerator Act()
     {

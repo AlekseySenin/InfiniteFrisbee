@@ -65,8 +65,10 @@ public class ProjectileScript : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    public void Init(PlayerChar playerA, PlayerChar playerB)
     {
+        picher = playerA;
+        cacher = playerB;
         isMoveing = false;
         fireTrale.SetActive(false);
         picher.Cach();
@@ -78,7 +80,7 @@ public class ProjectileScript : MonoBehaviour
         GameController.OnGameWin += GameEnd;
         GameController.OnGameLose += GameEnd;
         picher.projectile = this;
-        picher.Activate();
+        //picher.Activate();
         StartCoroutine(CreateDots());
         Marker = picher.transform.position + ((cacher.transform.position - picher.transform.position) * pointBetweenPlayers);
     }
@@ -164,12 +166,10 @@ public class ProjectileScript : MonoBehaviour
                 SoundManager.PlaySound(source, SoundType.cachBall);
             }
             fireTrale.SetActive(false);
-            picher.Deactivate();
             transform.position = cacher.transform.position;
             picher = cacher;
             cacher = picher.nextPlayer;
             isMoveing = false;
-            picher.Activate();
             GameController.picher = picher;
             GameController.cacher = cacher;
             GoToHand(picher.hand);
@@ -255,7 +255,7 @@ public class ProjectileScript : MonoBehaviour
             {
                 GoToHand(locator.hand);
             }
-            GameController.OnGameLose?.Invoke();
+           GameController.OnGameLose?.Invoke();
             if (TryGetComponent(out AudioSource source))
             {
                 SoundManager.PlaySound(source, SoundType.lose);
@@ -288,7 +288,6 @@ public class ProjectileScript : MonoBehaviour
         {
             GameObject newDot = Instantiate(dotsData.dotPrefab, dotContainer.transform);
             dots.Add(newDot);
-            Debug.Log((float)dots.Count / (float)dotsData.numberOfDots);
             newDot.GetComponent<SpriteRenderer>().color = Color.Lerp(dotsData.StartColor, dotsData.endColor, (float)dots.Count / (float)dotsData.numberOfDots);
             StartCoroutine(CreateDots());
         }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerChar : MonoBehaviour
 {
     public PlayerChar nextPlayer;
-    [SerializeField] private List<EnemyBehaviour> enemyes;
+   // [SerializeField] private List<EnemyBehaviour> enemyes;
     public Transform hand;
     public ProjectileScript projectile;
 
@@ -18,11 +18,12 @@ public class PlayerChar : MonoBehaviour
     private Vector3 finishForward;
     private float turnState = 0;
     public Action<MovementType> OnMove;
+    public Action OnGetBall;
+    public static Action OnSegmentPassed;
 
 
     private void Start()
     {
-        enemyes = enemyes.FindAll(x => x != null);
         GameController.playerChars.Add(this);
         StartCoroutine(FollowTheProjectile());
     }
@@ -67,27 +68,6 @@ public class PlayerChar : MonoBehaviour
         transform.forward = new Vector3(0,0, newForward.z);
     }
 
-    public void Activate()
-    {
-        foreach (var item in enemyes)
-        {
-            if (item != null)
-            {
-                item.Activate(transform);
-            }
-        }
-    }
-
-    public void Deactivate()
-    {
-        foreach (var item in enemyes)
-        {
-            if (item != null)
-            {
-                item.Diactivate();      
-            }
-        }
-    }
 
     public void ThrowProjectile()
     {
@@ -131,22 +111,22 @@ public class PlayerChar : MonoBehaviour
     public void Cach()
     {
         OnMove?.Invoke(MovementType.Cach);
-        if (ProjectileScript.FireAmount>=ProjectileScript.FireToShoot)
-        {
-            StartCoroutine(SuperThrow());
-        }
-        else
-        {
-            StartCoroutine(GetReady());
-        }
+        OnGetBall?.Invoke();
+        OnSegmentPassed?.Invoke();
+        //if (ProjectileScript.FireAmount>=ProjectileScript.FireToShoot)
+        //{
+        //    StartCoroutine(SuperThrow());
+        //}
+        //else
+        //{
+        StartCoroutine(GetReady());
+        //}
     }
 
     IEnumerator GetReady()
     {
         yield return new WaitForSeconds(cahhcooldown);
     }
-
-
 
     private void OnDestroy()
     {

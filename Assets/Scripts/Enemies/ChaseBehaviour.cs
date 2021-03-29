@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChaseBehaviour : EnemyBehaviour
+public class ChaseBehaviour : OldEnemyBehaviour
 {
     [SerializeField] float closeDistance;
 
