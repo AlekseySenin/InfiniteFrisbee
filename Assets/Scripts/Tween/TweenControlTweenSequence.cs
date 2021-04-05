@@ -6,19 +6,28 @@ public class TweenControlTweenSequence : TweenSequence
 {
     [SerializeField] List<TweenControlTweenData> controlTweenDatas;
 
-    protected override void Start()
+    private void Awake()
     {
-
         _tweenDatas = new List<TweenData>(controlTweenDatas);
-        base.Start();
     }
 
     protected override IEnumerator OnDoTween(TweenData tweenData)
     {
+        if(tweenData.time<=0) 
+        {
+            ActivateTween(tweenData);
+        }
         yield return new WaitForSeconds(tweenData.time);
+        if (tweenData.time > 0)
+        {
+            ActivateTween(tweenData);
+        }
+    }
+
+    private void ActivateTween(TweenData tweenData)
+    {
         TweenControlTweenData data = (TweenControlTweenData)tweenData;
         data.target.Init();
-        print(data.target.gameObject.name);
         StartNextTween(tweenData);
     }
 }

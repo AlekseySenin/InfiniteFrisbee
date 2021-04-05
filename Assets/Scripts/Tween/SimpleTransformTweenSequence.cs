@@ -6,7 +6,8 @@ public class SimpleTransformTweenSequence : TweenSequence
 {
     [SerializeField] private Transform targetTransform;
     public List <SimpleTransformTweenData> simpleTransformTweenDatas;
-    protected override void Start()
+
+    private void Awake()
     {
         _tweenActor = new SimpleTransformTweenActor();
         if (targetTransform == null)
@@ -14,8 +15,8 @@ public class SimpleTransformTweenSequence : TweenSequence
             targetTransform = transform;
         }
         _tweenDatas = new List<TweenData>(simpleTransformTweenDatas);
-        base.Start();
     }
+
 
     public override void StartTween(TweenData tweenData)
     {

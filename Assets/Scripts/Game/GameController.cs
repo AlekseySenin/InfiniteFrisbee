@@ -16,8 +16,6 @@ public static class GameController
     public static int playersPas = 0;
     public static int gameRuned = 0;
     public static bool canThrow;
-    public static bool IsTimedGame;
-    
 
 
 }

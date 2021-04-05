@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 983247017707871844, guid: 5a228a284f1fad742b79eaae2907008d,
         type: 3}
       propertyPath: m_Name
-      value: LevelSegment05
+      value: LevelSegment06
       objectReference: {fileID: 0}
     - target: {fileID: 983247017707871845, guid: 5a228a284f1fad742b79eaae2907008d,
         type: 3}
@@ -71,6 +71,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dfeaeb4277f8231449f41fc71bf91003, type: 2}
+      objectReference: {fileID: 2100000, guid: 1a20ad0bcaef421499e4b5f8a480876a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a228a284f1fad742b79eaae2907008d, type: 3}

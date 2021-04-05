@@ -20,7 +20,10 @@ public abstract class TweenSequence : Tween
 
     public override void Init()
     {
-        StartTween(_tweenDatas[0]);
+        if (_tweenDatas.Count > 0)
+        {
+            StartTween(_tweenDatas[0]);
+        } 
     }
 
     protected virtual void StartNextTween(TweenData tweenData)

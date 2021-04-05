@@ -35,7 +35,7 @@ public class PlayerChar : MonoBehaviour
         {
             if (hit.transform.gameObject.TryGetComponent(out ProjectileScript proj))
             {
-                OnMove?.Invoke(MovementType.Cach);
+                OnMove?.Invoke(MovementType.Catch );
             }
         }
     }
@@ -86,17 +86,6 @@ public class PlayerChar : MonoBehaviour
         }
     }
 
-    IEnumerator SuperThrow()
-    {
-        projectile.HideDots();
-        OnMove?.Invoke(MovementType.StartThrowing);
-        yield return new WaitForSeconds(0.3f  + cahhcooldown);
-        if (projectile != null)
-        {
-            projectile.SuperThrow();
-        }
-    }
-
     IEnumerator TurnToCacher()
     {
         yield return null;
@@ -110,17 +99,11 @@ public class PlayerChar : MonoBehaviour
 
     public void Cach()
     {
-        OnMove?.Invoke(MovementType.Cach);
+        OnMove?.Invoke(MovementType.Catch );
         OnGetBall?.Invoke();
         OnSegmentPassed?.Invoke();
-        //if (ProjectileScript.FireAmount>=ProjectileScript.FireToShoot)
-        //{
-        //    StartCoroutine(SuperThrow());
-        //}
-        //else
-        //{
+ 
         StartCoroutine(GetReady());
-        //}
     }
 
     IEnumerator GetReady()
@@ -136,5 +119,5 @@ public class PlayerChar : MonoBehaviour
 }
 
 public enum MovementType{
-    Cach, StartThrowing
+    Catch , StartThrowing
 }

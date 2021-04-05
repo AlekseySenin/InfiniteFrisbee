@@ -17,7 +17,7 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         switch (movementType)
         {
-            case MovementType.Cach:
+            case MovementType.Catch :
                 Cach();
                 break;
             case MovementType.StartThrowing:
